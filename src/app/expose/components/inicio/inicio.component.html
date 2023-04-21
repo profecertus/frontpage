@@ -1,0 +1,17 @@
+<div class="grid grid-nogutter surface-section text-800">
+  <div class="col-12 col-md-6 p-6 text-center md:text-left flex align-items-center flex-row-reverse flex-wrap">
+    <section>
+      <span class="block text-4xl font-bold mb-1">Congreso de la República del Perú</span>
+      <div class="text-5xl text-primary font-bold mb-3">Libro de Reclamaciones Digital</div>
+      <p class="mt-0 mb-4 text-700 line-height-3">A continuación, puedes ingresar un nuevo reclamo o conocer el estado del seguimiento</p>
+      <div class="card flex justify-content-center flex-wrap gap-3 align-items-center">
+        <p-button [routerLink]="['reclamo/registro']" label="Presenta tu reclamo" icon="pi pi-book" styleClass="p-button-raised p-button-danger"></p-button>
+        <p-button [routerLink]="['reclamo/buscar']" label="Buscar seguimiento" icon="pi pi-caret-right" styleClass="p-button-outlined p-button-danger"></p-button>
+      </div>
+      
+    </section>
+  </div>
+  <div class="col-12 col-md-6 overflow-hidden d-none d-md-block">
+    <img src="assets/images/portada-right.webp" alt="Image" class="md:ml-auto block md:h-full" style="width:100%;max-height: 600px; clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);">
+  </div>
+</div>

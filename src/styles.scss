@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'styles/base/html';
+@import 'styles/base/font';
+@import 'assets/fonts/font-file.css';
+
+@import 'styles/primeng/themes/material/material-light/standard/indigo/theme';
+@import "primeng/resources/primeng.min.css";
+//@import "primeng/resources/primeng.css";
+//@import "primeicons/primeicons.css";
+@import "../node_modules/primeicons/primeicons.css";
+//@import "primeflex/primeflex.css";
+@import "../node_modules/primeflex/primeflex.css";
+
+@import 'styles/utilities/grid';
+@import 'styles/utilities/colors';
+@import 'styles/utilities/utilities';
+@import 'styles/utilities/hacks';

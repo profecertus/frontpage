@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-12 col-md-6 ">
+    <span class="p-float-label">
+      <p-dropdown pRipple (onChange)="onDropdownChange($event)" [options]="opciones"
+        class="p-inputtext-sm" styleClass="w-full" placeholder="Seleccione" optionLabel="nombre"
+        inputId="float-label1"></p-dropdown>
+      <label for="float-label1">Tipo de documento</label>
+    </span>
+  </div>
+  <div class="col-12 col-md-6 ">
+    <span class="p-float-label">
+      <input pInputText id="numero" class="p-inputtext-sm w-full" maxlength="{{ maxlen }}" [(ngModel)]="numDoc" [disabled]="mostrarValidar" />
+      <label for="float-label1">Número del documento</label>
+    </span>
+    <small id="username-help" style="text-align: right;">0/{{ maxlen }}</small>
+  </div>
+  <div class="col-12 col-md-6">
+    <span class="p-float-label">
+      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat" [disabled]="mostrarValidar" />
+      <label for="float-label1">Apellido Paterno</label>
+    </span>
+  </div>
+  <div class="col-12 col-md-6">
+    <span class="p-float-label">
+      <input pInputText id="apeMaterno" class="p-inputtext-sm w-full" [(ngModel)]="apeMat" [disabled]="mostrarValidar" />
+      <label for="float-label1">Apellido Materno</label>
+    </span>  
+  </div>
+  <div class="col-12 col-md-6">
+    <span class="p-float-label">
+      <input pInputText id="nombres" class="p-inputtext-sm w-full" [(ngModel)]="nombres" [disabled]="mostrarValidar" />
+      <label for="float-label1">Nombres</label>
+    </span>  
+  </div>
+  <div class="col-12 col-md-6" *ngIf="mostrarValidar" >
+    <p-button pRibbon label="Validar Identidad" styleClass="p-button-danger" 
+        (onClick)="validarIdentidad()" ></p-button>
+  </div>
+
+  <p-tag icon="pi pi-info" *ngIf="mostrarValidar" severity="info" value="Ingrese sus datos tal como aparece en su documento"></p-tag>
+  
+
+
+    <div class="col-12 col-md-6" *ngIf="!mostrarValidar">
+      <span class="p-float-label">
+        <input pInputText id="domicilio" class="p-inputtext-sm w-full" [(ngModel)]="domicilio"  />
+        <label for="float-label1">Domicilio</label>
+      </span>
+    </div>
+
+    <div class="col-12 col-md-6" *ngIf="!mostrarValidar">
+      <span class="p-float-label">
+        <input pInputText id="telefono" class="p-inputtext-sm w-full" />
+        <label for="float-label1">Teléfono</label>
+      </span>
+    </div>
+
+    <div class="col-12 col-md-6" *ngIf="!mostrarValidar">
+      <span class="p-float-label">
+        <input pInputText id="email" class="p-inputtext-sm w-full" />
+        <label for="float-label1">E-mail</label>
+      </span>
+    </div>
+
+</div>
+

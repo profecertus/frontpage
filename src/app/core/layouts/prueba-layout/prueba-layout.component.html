@@ -1,0 +1,88 @@
+
+<div class="block-section ">
+  <div class="block-header">
+    <div class="flex flex-row">
+
+      <div class="flex align-items-center justify-content-center mr-2"><img style="height:60px" src="assets/images/logo_congreso.svg" alt="Image" height="30"></div>
+      <div class="block-title flex align-items-center justify-content-center">
+        <h2>Libro de reclamaciones</h2>
+      </div>
+
+    </div>
+
+    <div class="block-actions ">
+
+      <div class="p-ripple p-element flex align-items-center border-round text-700">
+
+        <div>
+          <div class="font-medium">AMÉRICO ALLENDE MANTILLA</div>
+          <div class="font-normal">ÁREA DE PROYECTOS</div>
+        </div>
+        <div class="ml-2">
+
+          <p-overlayPanel #op>
+            <ng-template pTemplate="content">
+              <h4>Custom Content</h4>
+            </ng-template>
+          </p-overlayPanel>
+          <p-button (click)="op.toggle($event)" styleClass="" icon="pi pi-user"></p-button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="block-content">
+    <div class="ng-star-inserted" style="height: 100vh; overflow: hidden;">
+      <div class="min-h-screen flex relative lg:static surface-ground">
+        <div id="app-sidebar-1" class="surface-section h-screen hidden lg:block flex-shrink-0 absolute lg:static left-0 top-0 z-1 border-right-1 surface-border select-none" style="width: 280px;">
+          <div class="flex flex-column h-full">
+
+            <span class="block p-3 text-gray-600 mt-3">MENU</span>
+            <div class="overflow-y-auto scroll1">
+
+
+                <p-panelMenu styleClass="menu-principal" [multiple]="false"  [model]="items"></p-panelMenu>
+
+
+            </div>
+            <div class="mt-auto">
+              <hr class="mb-3 mx-3 border-top-1 border-none surface-border">
+            </div>
+          </div>
+        </div>
+        <div class="min-h-screen flex flex-column relative flex-auto">
+          <div class="flex justify-content-between align-items-center px-5 surface-0 border-bottom-1 surface-border relative lg:static" style="height: 60px;">
+            <div class="flex">
+              <a pripple="" pstyleclass="#app-sidebar-1" enterclass="hidden" enteractiveclass="fadeinleft" leavetoclass="hidden" leaveactiveclass="fadeoutleft" class="p-ripple p-element cursor-pointer inline-flex align-items-center justify-content-center lg:hidden text-700 mr-3">
+                <i class="pi pi-bars text-4xl"></i><span class="p-ink"></span></a>
+                <span class="p-input-icon-left">
+                  <p-breadcrumb class="max-w-full" [model]="manuNav" [home]="manuNavHome" styleClass="menu-nav-principal"></p-breadcrumb>
+                </span>
+            </div>
+
+
+          ssss
+
+          </div>
+          <div class="p-4 flex  flex-auto">
+
+
+            <div class="border-1 border-solid p-5 surface-border border-round surface-section flex-auto">
+
+              contenido
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----><!---->
+  </div>
+
+</div>
+

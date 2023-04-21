@@ -1,0 +1,20 @@
+.block-header {
+  padding: 0.7rem 1.1rem;
+  background-color: var(--surface-section);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 1px solid var(--surface-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.block-content {
+  padding: 0;
+  border: 1px solid var(--surface-border);
+  border-top: 0 none;
+  background-color: var(--surface-section);
+}
+
+:host ::ng-deep .p-tag {
+  background: #111;
+}

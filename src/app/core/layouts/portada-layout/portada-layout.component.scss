@@ -1,0 +1,72 @@
+@import "utils";
+
+.header {
+  background: white;
+  &_title {
+    letter-spacing: -0.02em;
+  }
+
+  &_box {
+    height: 120px;
+    @include up(md) {
+      height: 80px;
+    }
+  }
+
+  &_text-logo {
+    width: 250px;
+    @include up(md) {
+      width: auto;
+    }
+  }
+}
+
+.layout_navbar {
+  position: relative;
+  height: 60px;
+
+  &_item {
+    color: var(--bs-white);
+    padding: 5px 11px;
+    border-radius: 4px;
+    font-weight: 500;
+
+    &.active {
+      background-color: var(--bs-white);
+      color: var(--bs-primary);
+    }
+  }
+
+  &::after {
+    content: "";
+    color: var(--primary);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    background-image: url('/assets/images/shadow-header.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -40px;
+    opacity:0.65
+  }
+}
+
+
+.footer {
+  background-color: var(--bs-dark);
+}
+
+
+.bic-titulo:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 3px;
+  right: 0;
+  background: #c1282a;
+  top: calc(50% - 2px);
+}
+
+a {
+  text-decoration:none
+}

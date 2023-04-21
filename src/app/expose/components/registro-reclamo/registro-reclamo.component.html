@@ -1,0 +1,285 @@
+<div class="py-3 lg:px-8">
+  <div class="font-medium text-3xl text-900 mb-3">Ingrese su reclamo</div>
+  <div class="font-medium text-1xl text-600 mb-3">Lamentamos el malestar generado, para darte una respuesta oportuna por
+    favor completa la siguiente información:</div>
+  <ul class="list-none m-0 p-0 flex flex-column md:flex-row">
+    <li class="relative mr-0 flex-1 flex justify-content-center">
+      <div [ngClass]="paso >=1 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
+        class="w-full md:mr-6 surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
+        <i class="pi pi-user text-blue-500 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3"></i>
+        <div>
+          <div class="text-blue-600 font-medium mb-1">Datos Personales</div>
+          <span class="text-600 text-sm hidden md:block">Paso 1</span>
+        </div>
+      </div>
+      <div class="w-full absolute top-50 left-50 surface-300 hidden md:block"
+        style="transform: translateY(-50%); height: 2px;"></div>
+    </li>
+
+    <li class=" relative mr-0 flex-1 flex  justify-content-center">
+      <div [ngClass]="paso >=2 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
+        class="w-full  md:mx-3  surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
+        <i class="pi pi-map-marker text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3"></i>
+        <div>
+          <div class="text-900 font-medium mb-1">Situación del reclamo</div>
+          <span class="text-600 text-sm hidden md:block">Paso 2</span>
+        </div>
+      </div>
+      <div class="w-full absolute top-50 left-50 surface-300 hidden md:block"
+        style="transform: translateY(-50%); height: 2px;"></div>
+    </li>
+
+    <li class=" relative mr-0 flex-1 flex justify-content-center ">
+      <div [ngClass]="paso ==3 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
+        class="w-full  md:ml-6 surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
+        <i class="pi pi-check-circle text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3"></i>
+        <div>
+          <div class="text-900 font-medium mb-1">Clasificación del reclamo</div>
+          <span class="text-600 text-sm hidden md:block">Paso 3</span>
+        </div>
+      </div>
+    </li>
+
+
+  </ul>
+</div>
+
+
+<div class="block-section">
+  <div class="block-header">
+    <span class="block-title">
+      <h3 class="t-busqueda">Detalle de la situación del reclamo</h3>
+    </span>
+    <div class="block-actions text-900">
+      <p-badge [value]="'Paso '+paso" severity="success"></p-badge>
+
+    </div>
+  </div>
+  <div class="block-content">
+    <div class="ng-star-inserted">
+      <div class="surface-section px-4 py-4 md:px-6 lg:px-8">
+
+        <div class="row">
+          <div *ngIf="paso == 1" class="grid">
+
+            <div class="col-12"> <strong class="">1. Identificación</strong></div>
+            <div class="col-12"> 
+            <app-valida-documento></app-valida-documento>
+            </div>
+
+            <!--
+            <div class="col-12 mt-3"> <strong class="">2. Envío de la respuesta </strong>
+              <div class="mt-2">Selecciona cómo quieres recibir la respuesta a tu reclamo.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <span class="p-float-label">
+                <p-dropdown pRipple [options]="tipoenvio" [(ngModel)]="tipoenvioSelected" class="p-inputtext-sm"
+                  styleClass="w-full" placeholder="Seleccione" optionLabel="nombre" inputId="float-label1"></p-dropdown>
+                <label for="float-label1">Forma de envío</label>
+              </span>
+            </div>
+            <div class="col-12 col-md-6">
+
+              <span class="p-float-label" *ngIf="tipoenvioSelected?.id == 'a'">
+                <input pInputText id="sede_nombre" class="p-inputtext-sm w-full" />
+                <label htmlFor="Ingrese su correo electrónico">Ingrese su correo electrónico</label>
+              </span>
+              <span class="p-float-label" *ngIf="tipoenvioSelected?.id == 'b'">
+                <input pInputText id="sistema_nombre" class="p-inputtext-sm w-full" />
+                <label htmlFor="Ingrese su número celular">Ingrese su número celular</label>
+              </span>
+              <span class="p-float-label" *ngIf="tipoenvioSelected?.id == 'c'">
+                <input pInputText id="sistema_nombre" class="p-inputtext-sm w-full" />
+                <label htmlFor="Ingrese sede del Congreso para recoger informe">Ingrese sede del Congreso para recoger
+                  informe</label>
+              </span>
+            </div>
+
+            <div class="col-12 mt-3"> <strong class="">3. Notificaciones del avance (opcional)</strong>
+            </div>
+            <div class="col-12 px-3 ">
+              <div class="flex flex-column">
+                <div class="field-checkbox" style="{'margin-top':-5px}">
+                  <p-radioButton [inputId]="'c1'" name="category" [value]="'c1'"
+                    [(ngModel)]="selectedCategories"></p-radioButton>
+                  <label [for]="'c1'" class="ml-2">Si; se atenderá de acuerdo a los indicado previamente</label>
+                </div>
+                <div class="field-checkbox" style="{'margin-top':-5px}">
+                  <p-radioButton [inputId]="'c2'" name="category" [value]="'c2'"
+                    [(ngModel)]="selectedCategories"></p-radioButton>
+                  <label [for]="'c2'" class="ml-2">No</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 px-3 ">
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'hh'" [(ngModel)]="selectedCategories" [inputId]="'rr'"></p-checkbox>
+                <label [for]="'r'">Acepto la <a href="" class="text-primary">política de privacidad</a></label>
+              </div>
+            </div>
+            -->
+
+
+
+          </div>
+
+          <div *ngIf="paso == 2" class="grid">
+
+            <div class="col-12"> <strong class="">1. Identifica y selecciona los motivos del reclamo. </strong></div>
+            <div class="col-12 px-3 ">
+
+              <div class="field-checkbox mt-2">
+                <p-checkbox name="group" [value]="'aa'" [(ngModel)]="selectedCategories" [inputId]="'aa'"></p-checkbox>
+                <label [for]="'aa'"><b>Trato profesional en la atención</b><br /> La persona que te atendió no lo hizo
+                  de forma adecuada.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'bb'" [(ngModel)]="selectedCategories" [inputId]="'bb'"></p-checkbox>
+                <label [for]="'bb'"><b>Tiempo:</b> <br /> Hubo demora antes y/o durante la atención que
+                  recibiste.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'cc'" [(ngModel)]="selectedCategories" [inputId]="'cc'"></p-checkbox>
+                <label [for]="'cc'"><b>Procedimiento:</b> <br /> No se siguió el procedimiento de atención o no estás de
+                  acuerdo con este.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'dd'" [(ngModel)]="selectedCategories" [inputId]="'dd'"></p-checkbox>
+                <label [for]="'dd'"><b>Infraestructura:</b> <br /> El ambiente en el que se realizó la atención y/o
+                  mobiliario no están en buen estado, no hay rutas accesibles que faciliten el desplazamiento de las
+                  personas o el local queda en un sitio inseguro.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'ee'" [(ngModel)]="selectedCategories" [inputId]="'ee'"></p-checkbox>
+                <label [for]="'ee'"><b>Información:</b> <br /> La orientación sobre el servicio fue inadecuada,
+                  insuficiente o imprecisa.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'ff'" [(ngModel)]="selectedCategories" [inputId]="'ff'"></p-checkbox>
+                <label [for]="'ff'"><b>Resultado:</b> <br /> No se pudo obtener un resultado concreto como parte del
+                  servicio y/o no se justifica la negativa en la atención del servicio.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'gg'" [(ngModel)]="selectedCategories" [inputId]="'gg'"></p-checkbox>
+                <label [for]="'gg'"><b>Confianza:</b> <br /> Ocurrió una situación que afectó la confianza y
+                  credibilidad de la entidad.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'hh'" [(ngModel)]="selectedCategories" [inputId]="'hh'"></p-checkbox>
+                <label [for]="'hh'"><b>Disponibilidad:</b> <br /> El medio de atención (virtual, presencial o
+                  telefónico) por el que se brinda el servicio no responde a tus expectativas o tiene horarios
+                  restringidos.</label>
+              </div>
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'ii'" [(ngModel)]="selectedCategories" [inputId]="'ii'"></p-checkbox>
+                <label [for]="'ii'"><b>Otros.</b></label>
+              </div>
+            </div>
+
+            <div class="col-12"> <strong class="">2. ¿Trataron de darte una solución previa al registro del
+                reclamo?</strong></div>
+            <div class="col-12 px-3 ">
+
+              <div class="flex flex-row gap-3">
+                <div class="field-checkbox">
+                  <p-radioButton [inputId]="'c1'" name="category" [value]="'c1'"
+                    [(ngModel)]="selectedCategories"></p-radioButton>
+                  <label [for]="'c1'" class="ml-2">Si</label>
+                </div>
+                <div class="field-checkbox">
+                  <p-radioButton [inputId]="'c2'" name="category" [value]="'c2'"
+                    [(ngModel)]="selectedCategories"></p-radioButton>
+                  <label [for]="'c2'" class="ml-2">No</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div *ngIf="paso == 3" class="grid">
+            <div class="col-12"> <strong class="">1. ¿Donde ocurrió la situación que origina el reclamo?</strong></div>
+            <div class="col-12 col-md-6">
+              <span class="p-float-label">
+                <p-dropdown pRipple [options]="situaciones" [(ngModel)]="situacioSelect" class="p-inputtext-sm"
+                  styleClass="w-full" placeholder="Seleccione" optionLabel="nombre" inputId="float-label1"></p-dropdown>
+                <label for="float-label1">Tipo del lugar</label>
+              </span>
+            </div>
+            <div class="col-12 col-md-6">
+              <span class="p-float-label" *ngIf="situacioSelect?.id == '1'">
+                <input pInputText id="sede_nombre" class="p-inputtext-sm w-full" />
+                <label htmlFor="Dirección de la sede">Dirección de la sede</label>
+              </span>
+              <span class="p-float-label" *ngIf="situacioSelect?.id == '2'">
+                <input pInputText id="sistema_nombre" class="p-inputtext-sm w-full" />
+                <label htmlFor="Ingrese Url del sitio web o nombre del sistema">Ingrese Url del sitio web o nombre del
+                  sistema</label>
+              </span>
+            </div>
+
+            <div class="col-12 mt-2"> <strong class="">2. ¿Cuándo ocurrió la situación que origina el presente
+                reclamo?</strong></div>
+            <div class="col-12 col-md-6">
+              <span class="p-float-label">
+                <p-calendar [(ngModel)]="date" styleClass="p-inputtext-sm w-full"></p-calendar>
+                <label htmlFor="Fecha">Fecha del suceso</label>
+              </span>
+            </div>
+            <div class="col-12 col-md-6">
+              <span class="p-float-label">
+                <p-calendar [(ngModel)]="date" [timeOnly]="true" styleClass="p-inputtext-sm w-full"></p-calendar>
+                <label htmlFor="Hora aproximada">Hora aproximada</label>
+              </span>
+            </div>
+
+            <div class="col-12 mt-2">
+              <strong class="">3. Descríbenos ¿qué sucedió?</strong>
+              <div class="mt-2">Detalla cuál fue el problema que ocasionó que presentes este reclamo de la manera más
+                detallada posible.</div>
+            </div>
+            <div class="col-12">
+              <p-editor [(ngModel)]="text" [style]="{ height: '150px' }"></p-editor>
+            </div>
+
+
+            <div class="col-12 mt-2">
+              <strong class="">4. Adjuntar archivos (opcional)</strong>
+              <div class="mt-2">Puedes subir un máximo de <b>20 MB</b> por fotos, videos y/o textos que ayuden a
+                evidenciar tu reclamo.</div>
+            </div>
+            <div class="col-12">
+
+
+
+              <p-fileUpload url="https://www.primefaces.org/cdn/api/upload.php" cancelLabel="Cancelar"
+                chooseLabel="Seleccionar archivos" uploadLabel="Subir" [multiple]="true" accept="image/*"
+                [maxFileSize]="1000000">
+                <ng-template pTemplate="toolbar">
+                  <div class="py-3">Selecciones archivos</div>
+                </ng-template>
+                <ng-template let-file pTemplate="file">
+                  <ul *ngIf="file.length">
+                    <li *ngFor="let f of file">{{ f.name }} - {{ f.size }} bytes</li>
+                  </ul>
+                </ng-template>
+                <ng-template pTemplate="content" let-files>
+                  <div>* Solo se permite hasta un máximo de 10 archivos.</div>
+                </ng-template>
+              </p-fileUpload>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="flex justify-content-between flex-wrap ">
+              <p-button label="Anterior" (click)="clickAnterior()" styleClass="p-button-primary"
+                class="flex align-items-center justify-content-center" [disabled]="paso <= 1"></p-button>
+              <p-button label="Siguiente" (click)="clickSiguiente()" styleClass="p-button-primary"
+                class="flex align-items-center justify-content-center"></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

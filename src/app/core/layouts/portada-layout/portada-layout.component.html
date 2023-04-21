@@ -1,0 +1,51 @@
+<section>
+  <div class="header">
+    <div class="container header_box">
+      <div class="row h-100">
+        <div class="col-md-8 d-flex align-items-center">
+          <img src="assets/images/logo_congreso.svg" class="me-3" alt="">
+          <div class="block-title flex align-items-center justify-content-center">
+            <h2>LIBRO DE RECLAMACIONES DIGITAL</h2>
+          </div>          
+        </div>
+        <!--div class="col-md-4 d-none d-md-flex align-items-center justify-content-end">
+          <img src="assets/images/portada.svg" style="width: 24; height: 24;" class="me-2" alt="">
+          <span class="fw-500">Portal</span>
+        </div-->
+      </div>
+    </div>
+    <div class="text-light bg-primary">
+      <div class="container">
+        <div class="layout_navbar d-flex align-items-center">
+          <!--a [routerLink]="['/']"  class="layout_navbar_item fw-500 me-2 active">
+            Inicio
+          </a-->
+          <a [routerLink]="['reclamo/registro']" [routerLinkActive]="['active']" class="layout_navbar_item fw-500 me-2">
+            Nuevo reclamo
+          </a>
+          <a [routerLink]="['reclamo/buscar']" [routerLinkActive]="['active']" class="layout_navbar_item">
+            Seguimiento de reclamo
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+
+
+  <div class="footer text-white text-center pt-2 pb-3">
+    <h1 class="fs-4 fw-700 font-congreso">Congreso de la República</h1>
+    <p>Libro de Reclamos Digital - Versión 1.0.0 <br>
+      Plaza Bolívar, Av. Abancay s/n - Lima, Perú</p>
+    <p>Copyright © 2023</p>
+  </div>
+
+
+
+
+</section>

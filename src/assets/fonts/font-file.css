@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("/assets/fonts/TrojanPro.woff2") format("woff2"); /* chrome firefox */
+}
+.font-congreso {
+  font-family: 'Trajan Pro' !important;
+}

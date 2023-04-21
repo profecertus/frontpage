@@ -1,0 +1,21 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+
+
+@mixin up($width) {
+    @include media-breakpoint-up($width) {
+        @content;
+    }
+}
+@mixin down($width) {
+    @include media-breakpoint-down($width) {
+        @content;
+    }
+}
+@mixin only($width) {
+    @include media-breakpoint-only($width) {
+        @content;
+    }
+}
