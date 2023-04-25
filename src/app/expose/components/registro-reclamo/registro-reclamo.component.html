@@ -67,32 +67,15 @@
             <app-valida-documento></app-valida-documento>
             </div>
 
-            <!--
-            <div class="col-12 mt-3"> <strong class="">2. Envío de la respuesta </strong>
-              <div class="mt-2">Selecciona cómo quieres recibir la respuesta a tu reclamo.</div>
+            
+            <div class="col-12 mt-3"> <strong class="">2. Persona Jurídica </strong>
+              <div class="mt-2">Selecciona si el reclamo es en representación de una entidad o empresa.</div>
             </div>
-            <div class="col-12 col-md-6">
-              <span class="p-float-label">
-                <p-dropdown pRipple [options]="tipoenvio" [(ngModel)]="tipoenvioSelected" class="p-inputtext-sm"
-                  styleClass="w-full" placeholder="Seleccione" optionLabel="nombre" inputId="float-label1"></p-dropdown>
-                <label for="float-label1">Forma de envío</label>
-              </span>
-            </div>
-            <div class="col-12 col-md-6">
-
-              <span class="p-float-label" *ngIf="tipoenvioSelected?.id == 'a'">
-                <input pInputText id="sede_nombre" class="p-inputtext-sm w-full" />
-                <label htmlFor="Ingrese su correo electrónico">Ingrese su correo electrónico</label>
-              </span>
-              <span class="p-float-label" *ngIf="tipoenvioSelected?.id == 'b'">
-                <input pInputText id="sistema_nombre" class="p-inputtext-sm w-full" />
-                <label htmlFor="Ingrese su número celular">Ingrese su número celular</label>
-              </span>
-              <span class="p-float-label" *ngIf="tipoenvioSelected?.id == 'c'">
-                <input pInputText id="sistema_nombre" class="p-inputtext-sm w-full" />
-                <label htmlFor="Ingrese sede del Congreso para recoger informe">Ingrese sede del Congreso para recoger
-                  informe</label>
-              </span>
+            <div class="col-12 px-3 ">
+              <div class="field-checkbox mt-3">
+                <p-checkbox name="group" [value]="'hh'" [(ngModel)]="selectedCategories" [inputId]="'esEntidad'"></p-checkbox>
+                <label [for]="'entidad'">Represento una entidad o empresa</label>
+              </div>
             </div>
 
             <div class="col-12 mt-3"> <strong class="">3. Notificaciones del avance (opcional)</strong>
@@ -117,7 +100,7 @@
                 <label [for]="'r'">Acepto la <a href="" class="text-primary">política de privacidad</a></label>
               </div>
             </div>
-            -->
+            
 
 
 

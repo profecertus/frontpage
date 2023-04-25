@@ -12,14 +12,18 @@ export class ValidaDocumentoComponent implements OnInit {
   apePat:string = "";
   apeMat:string = "";
   nombres:string = "";
+  telefono:string = "";
+  email:string = "";
   domicilio:string = "";
-  tipoDoc:string = "DNI";
+  selectedValue:string = "DNI";
+  defaultValue:string="DNI";
   mostrarValidar:boolean = false;
   
   opciones:any[] = [
-    {id: 'DNI', nombre: 'DNI', maxlen:'8', tipo:'N'},
-    {id: 'CE', nombre: 'Carnet de extranjería', maxlen:'12', tipo:'X'}
+    {id: 'DNI', label: 'DNI', maxlen:'8', tipo:'N'},
+    {id: 'CE', label: 'Carnet de extranjería', maxlen:'12', tipo:'X'}
   ];
+
 
   validarIdentidad(){
     this.mostrarValidar = false;
@@ -32,9 +36,13 @@ export class ValidaDocumentoComponent implements OnInit {
     this.apePat = "";
     this.nombres = "";
     this.domicilio = "";
+    this.telefono = "";
+    this.email = "";
   
-    this.maxlen = event.value.maxlen;
-    if (event.value.id == 'DNI') {
+    let encontrado = this.opciones.find(x => x.id == event.value);
+    
+    this.maxlen = encontrado.maxlen;
+    if (event.value == 'DNI') {
       this.mostrarValidar = true;
     }
     else {
@@ -46,6 +54,9 @@ export class ValidaDocumentoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.mostrarValidar = true;
+    let encontrado = this.opciones.find(x => x.id == 'DNI');    
+    this.maxlen = encontrado.maxlen;
   }
 
 }

@@ -13,6 +13,7 @@ export class RegistroReclamoComponent implements OnInit {
   situaciones: Situacion[] | any;
   situacioSelect: Situacion | any;
   selectedOption:any;
+  esEntidad:string = '';
 
 
   date: Date[] | any;
