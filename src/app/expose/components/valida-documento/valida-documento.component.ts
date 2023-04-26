@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ValidaDocumentoComponent implements OnInit {
   maxlen:number = 0;  
   numDoc:string = "";
+  twoDecimal: RegExp = /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/;
   apePat:string = "";
   apeMat:string = "";
   nombres:string = "";
@@ -24,6 +25,10 @@ export class ValidaDocumentoComponent implements OnInit {
     {id: 'CE', label: 'Carnet de extranjería', maxlen:'12', tipo:'X'}
   ];
 
+  valida(event:any){
+    console.log("valor");
+    console.log(event);
+  }
 
   validarIdentidad(){
     this.mostrarValidar = false;
@@ -37,7 +42,8 @@ export class ValidaDocumentoComponent implements OnInit {
     this.nombres = "";
     this.domicilio = "";
     this.telefono = "";
-    this.email = "";
+    this.email = "";   
+
   
     let encontrado = this.opciones.find(x => x.id == event.value);
     

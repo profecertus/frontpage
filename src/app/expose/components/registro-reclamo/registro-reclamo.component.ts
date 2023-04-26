@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Situacion} from "../../model/situacion.interface";
 import {Router} from "@angular/router";
+import { DialogModule } from 'primeng/dialog';
 
 
 @Component({
@@ -13,7 +14,10 @@ export class RegistroReclamoComponent implements OnInit {
   situaciones: Situacion[] | any;
   situacioSelect: Situacion | any;
   selectedOption:any;
-  esEntidad:string = '';
+  esEntidad:boolean = false;
+  esVisible:boolean = false;
+  entidad:string = "";  
+  ruc:string = "";
 
 
   date: Date[] | any;
@@ -24,17 +28,13 @@ export class RegistroReclamoComponent implements OnInit {
   text:string = '';
   paso:number = 1;
   selectedCategories: any[] = [];
-  categories: any[] = [
-    { name: 'Accounting', key: 'A' },
-    { name: 'Marketing', key: 'M' },
-    { name: 'Production', key: 'P' },
-    { name: 'Research', key: 'R' }
-  ];
+  
   tipoenvioSelected: any;
   tipoenvio: any[] = [];
   constructor(private router: Router) {
 
   }
+
 
   ngOnInit(): void {
     this.situaciones = [
@@ -42,15 +42,13 @@ export class RegistroReclamoComponent implements OnInit {
       { id: '2', nombre: 'En el Portal Institucional' }
     ];
 
-    this.tipoenvio = [
-      { nombre: 'Quiero recibirla por correo electrónico', id: 'a' },
-      { nombre: 'Quiero recibirla por celular', id: 'b' },
-      { nombre: 'Quiero recoger una copia en sede del Congreso', id: 'c' },
-    ];
     this.situacioSelect = this.situaciones[0];
-    this.tipoenvioSelected = this.tipoenvio[0];
+    
+  }
+ 
 
-
+  obtenerEmpresa(event:any){
+    this.entidad = "EMPRESA LOS JARDINES DEL MAR S.A.";
   }
 
   clickSiguiente() {

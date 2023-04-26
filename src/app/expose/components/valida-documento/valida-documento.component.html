@@ -9,14 +9,15 @@
   </div>
   <div class="col-12 col-md-6 ">
     <span class="p-float-label">
-      <input pInputText id="numero" class="p-inputtext-sm w-full" maxlength="{{ maxlen }}" [(ngModel)]="numDoc"  />
+      <input pInputText id="numero" class="p-inputtext-sm w-full" maxlength="{{ maxlen }}" [(ngModel)]="numDoc" />
       <label for="float-label1">Número del documento</label>
     </span>
     <small id="username-help" style="text-align: right;">0/{{ maxlen }}</small>
   </div>
+  
   <div class="col-12 col-md-6">
     <span class="p-float-label">
-      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat"  />
+      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat" pKeyFilter="int" />      
       <label for="float-label1">Apellido Paterno</label>
     </span>
   </div>
@@ -37,7 +38,7 @@
         (onClick)="validarIdentidad()" ></p-button>
   </div>
 
-  <p-tag icon="pi pi-info" *ngIf="mostrarValidar" severity="info" value="Ingrese sus datos tal como aparece en su documento"></p-tag>
+  <!--p-tag icon="pi pi-info" *ngIf="mostrarValidar" severity="info" value="Ingrese sus datos tal como aparece en su documento"></p-tag-->
   
 
 

@@ -11,8 +11,10 @@ import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {RippleModule} from "primeng/ripple";
 import {PrimeNGConfig} from "primeng/api";
-import { ButtonModule } from 'primeng/button';
-import { InputMaskModule } from 'primeng/inputmask';
+import {ButtonModule} from 'primeng/button';
+import {InputMaskModule} from 'primeng/inputmask';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import {DialogModule} from 'primeng/dialog';
 
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
   // ......
@@ -24,14 +26,15 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
     AppComponent
   ],
   imports: [
-
     BrowserModule,
     BrowserAnimationsModule,
     RippleModule,
     AppRoutingModule,
     LayoutsModule,
     ButtonModule,
-    InputMaskModule
+    InputMaskModule,
+    KeyFilterModule,
+    DialogModule
   ],
   providers: [
     {

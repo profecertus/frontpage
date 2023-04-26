@@ -62,45 +62,63 @@
         <div class="row">
           <div *ngIf="paso == 1" class="grid">
 
-            <div class="col-12"> <strong class="">1. Identificación</strong></div>
+            <div class="col-12"> <strong class="">1. Identificación</strong>
+              <div class="mt-2">Ingrese los datos solicitados igual como aparece en su documento de identidad.</div>
+            </div>
             <div class="col-12"> 
             <app-valida-documento></app-valida-documento>
             </div>
 
             
-            <div class="col-12 mt-3"> <strong class="">2. Persona Jurídica </strong>
+            <div class="col-12 mt-3"> <strong class="">2. Persona Jurídica (opcional) </strong>
               <div class="mt-2">Selecciona si el reclamo es en representación de una entidad o empresa.</div>
             </div>
             <div class="col-12 px-3 ">
               <div class="field-checkbox mt-3">
-                <p-checkbox name="group" [value]="'hh'" [(ngModel)]="selectedCategories" [inputId]="'esEntidad'"></p-checkbox>
-                <label [for]="'entidad'">Represento una entidad o empresa</label>
+                <p-checkbox label="Represento una entidad o empresa" [binary]="true" [(ngModel)]="esEntidad" >
+                </p-checkbox>                
               </div>
             </div>
 
-            <div class="col-12 mt-3"> <strong class="">3. Notificaciones del avance (opcional)</strong>
-            </div>
-            <div class="col-12 px-3 ">
-              <div class="flex flex-column">
-                <div class="field-checkbox" style="{'margin-top':-5px}">
-                  <p-radioButton [inputId]="'c1'" name="category" [value]="'c1'"
-                    [(ngModel)]="selectedCategories"></p-radioButton>
-                  <label [for]="'c1'" class="ml-2">Si; se atenderá de acuerdo a los indicado previamente</label>
+            <div class="col-12" *ngIf="esEntidad"> 
+              <div class="row">
+                <div class="col-12 col-md-6 ">
+                  <span class="p-float-label">
+                    <input pInputText id="ruc" class="p-inputtext-sm w-full" [(ngModel)]="ruc" maxlength="11"  />
+                    <label for="float-label1">RUC</label>
+                  </span>
+                  <small id="username-help" style="text-align: right;">0/11</small>
                 </div>
-                <div class="field-checkbox" style="{'margin-top':-5px}">
-                  <p-radioButton [inputId]="'c2'" name="category" [value]="'c2'"
-                    [(ngModel)]="selectedCategories"></p-radioButton>
-                  <label [for]="'c2'" class="ml-2">No</label>
+
+                <div class="col-12 col-md-6" >
+                  <p-button pRibbon label="Obtener Empresa" styleClass="p-button-danger" (onClick)="obtenerEmpresa($event)"></p-button>
+                </div>
+
+                <div class="col-12 col-md-12">
+                  <span class="p-float-label">
+                    <input pInputText id="nombreEntidad" class="p-inputtext-sm w-full" disabled="true" [(ngModel)]="entidad" />
+                    <label for="float-label1">Nombre Empresa o Entidad</label>
+                  </span>  
                 </div>
               </div>
             </div>
+            
+            <div class="col-12 mt-3"> <strong class="">3. Política de Manejo de Información </strong></div>
             <div class="col-12 px-3 ">
               <div class="field-checkbox mt-3">
                 <p-checkbox name="group" [value]="'hh'" [(ngModel)]="selectedCategories" [inputId]="'rr'"></p-checkbox>
                 <label [for]="'r'">Acepto la <a href="" class="text-primary">política de privacidad</a></label>
               </div>
             </div>
-            
+
+           
+            <!--p-dialog header="Header" [style]="{width: '50vw'}">
+              <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </p-dialog--> 
+
 
 
 
