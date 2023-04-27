@@ -23,6 +23,12 @@ import {TagModule} from "primeng/tag";
 import { InicioComponent } from './components/inicio/inicio.component';
 import {RippleModule} from "primeng/ripple";
 import { ValidaDocumentoComponent } from './components/valida-documento/valida-documento.component';
+import {DialogModule} from 'primeng/dialog';
+import { DividerModule } from 'primeng/divider';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { SelectButtonModule } from 'primeng/selectbutton';
+
+
 
 
 @NgModule({
@@ -36,11 +42,15 @@ import { ValidaDocumentoComponent } from './components/valida-documento/valida-d
   ],
   imports: [
     CommonModule,
+    SelectButtonModule,
+    KeyFilterModule,
     FormsModule,
     ReactiveFormsModule,
     ExposeRoutingModule,
     DropdownModule,
     ButtonModule,
+    DialogModule,
+    DividerModule,
     BadgeModule,
     InputTextModule,
     RadioButtonModule,
@@ -49,7 +59,8 @@ import { ValidaDocumentoComponent } from './components/valida-documento/valida-d
     HttpClientModule,
     FileUploadModule,
     CheckboxModule,
-    TagModule
+    TagModule,
+    KeyFilterModule
   ]
 })
 export class ExposeModule { }

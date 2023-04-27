@@ -15,6 +15,10 @@ import {ButtonModule} from 'primeng/button';
 import {InputMaskModule} from 'primeng/inputmask';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import {DialogModule} from 'primeng/dialog';
+import { DividerModule } from 'primeng/divider';
+import { TooltipModule } from 'primeng/tooltip';
+import { SelectButtonModule } from 'primeng/selectbutton';
+
 
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
   // ......
@@ -27,6 +31,7 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
   ],
   imports: [
     BrowserModule,
+    SelectButtonModule,
     BrowserAnimationsModule,
     RippleModule,
     AppRoutingModule,
@@ -34,7 +39,9 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
     ButtonModule,
     InputMaskModule,
     KeyFilterModule,
-    DialogModule
+    DialogModule,
+    DividerModule,
+    TooltipModule
   ],
   providers: [
     {

@@ -14,26 +14,30 @@ export class ValidaDocumentoComponent implements OnInit {
   apeMat:string = "";
   nombres:string = "";
   telefono:string = "";
-  email:string = "";
-  domicilio:string = "";
+   domicilio:string = "";
   selectedValue:string = "DNI";
   defaultValue:string="DNI";
   mostrarValidar:boolean = false;
+  bloquear:boolean = false;
+  ocultarBoton:boolean = true;
+  digitovalidador:number = 0;
+  blockChars: RegExp = /[a-zA-Z\s<>]+/; 
+  
+  
   
   opciones:any[] = [
-    {id: 'DNI', label: 'DNI', maxlen:'8', tipo:'N'},
-    {id: 'CE', label: 'Carnet de extranjería', maxlen:'12', tipo:'X'}
+    {id: 'DNI', label: 'DNI', maxlen:'8'},
+    {id: 'CE', label: 'Carnet de extranjería', maxlen:'9'}
   ];
 
-  valida(event:any){
-    console.log("valor");
-    console.log(event);
-  }
 
   validarIdentidad(){
-    this.mostrarValidar = false;
+    this.bloquear = true;
     this.domicilio = "AV. SANTA FÉ 123 LA VICTORIA  ";
+    this.ocultarBoton = false;
   }
+
+
 
   onDropdownChange(event:any) {
     this.numDoc = "";
@@ -42,18 +46,20 @@ export class ValidaDocumentoComponent implements OnInit {
     this.nombres = "";
     this.domicilio = "";
     this.telefono = "";
-    this.email = "";   
-
-  
+    
     let encontrado = this.opciones.find(x => x.id == event.value);
     
     this.maxlen = encontrado.maxlen;
     if (event.value == 'DNI') {
-      this.mostrarValidar = true;
+      this.mostrarValidar = true;      
+      this.bloquear = false;
+      this.ocultarBoton = true;
     }
     else {
       this.mostrarValidar = false;      
-    }
+      this.bloquear = false;
+      this.ocultarBoton = false;
+    }    
   }
 
 

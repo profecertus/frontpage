@@ -9,59 +9,57 @@
   </div>
   <div class="col-12 col-md-6 ">
     <span class="p-float-label">
-      <input pInputText id="numero" class="p-inputtext-sm w-full" maxlength="{{ maxlen }}" [(ngModel)]="numDoc" />
+      <!--input pKeyFilter="int" pInputText id="numero" class="p-inputtext-sm w-full" maxlength="{{ maxlen }}" [(ngModel)]="numDoc" [disabled]="bloquear" /-->
+      <input pInputText id="numeroDocumento" class="p-inputtext-sm w-full" [(ngModel)]="numDoc" [maxLength]="maxlen" [disabled]="bloquear" [pKeyFilter]="'int'"/>      
       <label for="float-label1">Número del documento</label>
     </span>
     <small id="username-help" style="text-align: right;">0/{{ maxlen }}</small>
   </div>
   
+  <div class="col-12 col-md-6 " *ngIf="mostrarValidar">
+    <span class="p-float-label">
+      <input pInputText id="digitovalidador" class="p-inputtext-sm w-full" maxlength="1" [(ngModel)]="digitovalidador" [disabled]="bloquear" [pKeyFilter]="'int'" />
+      <label for="float-label1">Digito Validador</label>
+    </span>
+    <small id="username-help" style="text-align: right;">0/1</small>
+  </div>
+
   <div class="col-12 col-md-6">
     <span class="p-float-label">
-      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat" pKeyFilter="int" />      
+      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat" [disabled]="bloquear" [pKeyFilter]="blockChars"/>      
       <label for="float-label1">Apellido Paterno</label>
     </span>
   </div>
   <div class="col-12 col-md-6">
     <span class="p-float-label">
-      <input pInputText id="apeMaterno" class="p-inputtext-sm w-full" [(ngModel)]="apeMat"  />
+      <input pInputText id="apeMaterno" class="p-inputtext-sm w-full" [(ngModel)]="apeMat"  [disabled]="bloquear" [pKeyFilter]="blockChars"/>
       <label for="float-label1">Apellido Materno</label>
     </span>  
   </div>
   <div class="col-12 col-md-6">
     <span class="p-float-label">
-      <input pInputText id="nombres" class="p-inputtext-sm w-full" [(ngModel)]="nombres" />
+      <input pInputText id="nombres" class="p-inputtext-sm w-full" [(ngModel)]="nombres" [disabled]="bloquear" [pKeyFilter]="blockChars"/>
       <label for="float-label1">Nombres</label>
     </span>  
   </div>
-  <div class="col-12 col-md-6" *ngIf="mostrarValidar" >
-    <p-button pRibbon label="Validar Identidad" styleClass="p-button-danger" 
+  <div class="col-12 col-md-6" *ngIf="ocultarBoton" >
+    <p-button pRibbon label="Validar Identidad" styleClass="p-button-danger" icon="pi pi-user"
         (onClick)="validarIdentidad()" ></p-button>
   </div>
 
-  <!--p-tag icon="pi pi-info" *ngIf="mostrarValidar" severity="info" value="Ingrese sus datos tal como aparece en su documento"></p-tag-->
   
-
-
-    <div class="col-12 col-md-6" *ngIf="!mostrarValidar">
+    <div class="col-12 col-md-6" *ngIf="!ocultarBoton">
       <span class="p-float-label">
         <input pInputText id="domicilio" class="p-inputtext-sm w-full" [(ngModel)]="domicilio"  />
         <label for="float-label1">Domicilio</label>
       </span>
     </div>
 
-    <div class="col-12 col-md-6" *ngIf="!mostrarValidar">
+    <div class="col-12 col-md-6" *ngIf="!ocultarBoton">
       <span class="p-float-label">
-        <input pInputText id="telefono" class="p-inputtext-sm w-full" [(ngModel)]="telefono"/>
+        <input pInputText id="telefono" class="p-inputtext-sm w-full" [(ngModel)]="telefono" [pKeyFilter]="'num'"/>
         <label for="float-label1">Teléfono</label>
       </span>
     </div>
-
-    <div class="col-12 col-md-6" *ngIf="!mostrarValidar">
-      <span class="p-float-label">
-        <input pInputText id="email" class="p-inputtext-sm w-full" [(ngModel)]="email" />
-        <label for="float-label1">E-mail</label>
-      </span>
-    </div>
-
 </div>
 
