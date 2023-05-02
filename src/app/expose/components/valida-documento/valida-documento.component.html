@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-12 col-md-6 ">
     <span class="p-float-label">
-      <p-dropdown pRipple (onChange)="onDropdownChange($event)" [options]="opciones" [(ngModel)]="selectedValue" 
+      <p-dropdown pRipple (onChange)="onDropdownChange($event)" [options]="opciones" [(ngModel)]="selectedValue"
         class="p-inputtext-sm" styleClass="w-full" placeholder="Seleccione" optionLabel="label" optionValue="id"
-        inputId="float-label1"></p-dropdown>
+        inputId="float-label1" id="dd_tipoDocumento"></p-dropdown>
       <label for="float-label1">Tipo de documento</label>
     </span>
   </div>
   <div class="col-12 col-md-6 ">
     <span class="p-float-label">
       <!--input pKeyFilter="int" pInputText id="numero" class="p-inputtext-sm w-full" maxlength="{{ maxlen }}" [(ngModel)]="numDoc" [disabled]="bloquear" /-->
-      <input pInputText id="numeroDocumento" class="p-inputtext-sm w-full" [(ngModel)]="numDoc" [maxLength]="maxlen" [disabled]="bloquear" [pKeyFilter]="'int'"/>      
+      <input pInputText id="numeroDocumento" class="p-inputtext-sm w-full" [(ngModel)]="numDoc" [maxLength]="maxlen" [disabled]="bloquear" [pKeyFilter]="'int'"/>
       <label for="float-label1">Número del documento</label>
     </span>
     <small id="username-help" style="text-align: right;">0/{{ maxlen }}</small>
   </div>
-  
+
   <div class="col-12 col-md-6 " *ngIf="mostrarValidar">
     <span class="p-float-label">
       <input pInputText id="digitovalidador" class="p-inputtext-sm w-full" maxlength="1" [(ngModel)]="digitovalidador" [disabled]="bloquear" [pKeyFilter]="'int'" />
@@ -26,7 +26,7 @@
 
   <div class="col-12 col-md-6">
     <span class="p-float-label">
-      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat" [disabled]="bloquear" [pKeyFilter]="blockChars"/>      
+      <input pInputText id="apePaterno" class="p-inputtext-sm w-full" [(ngModel)]="apePat" [disabled]="bloquear" [pKeyFilter]="blockChars"/>
       <label for="float-label1">Apellido Paterno</label>
     </span>
   </div>
@@ -34,20 +34,21 @@
     <span class="p-float-label">
       <input pInputText id="apeMaterno" class="p-inputtext-sm w-full" [(ngModel)]="apeMat"  [disabled]="bloquear" [pKeyFilter]="blockChars"/>
       <label for="float-label1">Apellido Materno</label>
-    </span>  
+    </span>
   </div>
   <div class="col-12 col-md-6">
     <span class="p-float-label">
       <input pInputText id="nombres" class="p-inputtext-sm w-full" [(ngModel)]="nombres" [disabled]="bloquear" [pKeyFilter]="blockChars"/>
       <label for="float-label1">Nombres</label>
-    </span>  
+    </span>
   </div>
+  <p-toast></p-toast>
   <div class="col-12 col-md-6" *ngIf="ocultarBoton" >
     <p-button pRibbon label="Validar Identidad" styleClass="p-button-danger" icon="pi pi-user"
         (onClick)="validarIdentidad()" ></p-button>
   </div>
 
-  
+
     <div class="col-12 col-md-6" *ngIf="!ocultarBoton">
       <span class="p-float-label">
         <input pInputText id="domicilio" class="p-inputtext-sm w-full" [(ngModel)]="domicilio"  />

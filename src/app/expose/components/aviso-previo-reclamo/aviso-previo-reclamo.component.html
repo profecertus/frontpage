@@ -1,0 +1,134 @@
+<!--
+Necesito mostrar los siguientes datos
+* El tipo de documento
+* El numero de documento
+* Los nombres, apellidos paternos y maternos
+* Email
+* Nombre de la persona juridica representada, en caso de serlo.
+* Motivo del Reclamo
+* Trataron de darle solución al reclamo
+* Lugar donde ocurrio la situación.
+  * Tipo de Lugar
+  * Lugar de Ocurrencia
+* Fecha y Hora de Ejecución.
+* Descripción del Evento
+* Nombre de los archivos enviados.
+-->
+<div class="py-3 lg:px-8">
+  <div class="font-medium text-3xl text-900 mb-3">Resumen de su Reclamo</div>
+  <div class="font-medium text-1xl text-600 mb-3">A continuación le mostramos el resumen de su reclamo, revise y pulse en continuar para proceder con su registro</div>
+</div>
+<p-fieldset legend="Datos del ciudadano">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-id-card"></i>
+          </span>
+          <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="tipoDocumento" readonly="readonly"/>
+            <label for="float-label1">Tipo de Documento</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-sort-numeric-down-alt"></i>
+          </span>
+          <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="numeroDocumento" readonly="readonly" />
+            <label for="float-label1">Numero Documento</label>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-md-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-user"></i>
+          </span>
+          <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="nombreCompleto" readonly="readonly" />
+            <label for="float-label1">Nombres y Apellidos</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-envelope"></i>
+          </span>
+          <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="email" readonly="readonly" />
+            <label for="float-label1">Email</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-phone"></i>
+          </span>
+          <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="telefono" readonly="readonly" />
+            <label for="float-label1">Telefono</label>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-md-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-home"></i>
+          </span>
+          <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="domicilio" readonly="readonly" />
+            <label for="float-label1">Domicilio</label>
+          </span>
+        </div>
+      </div>
+
+    </div>
+</p-fieldset>
+
+
+<p-fieldset legend="Representación Jurídica">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-wallet"></i>
+          </span>
+        <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="ruc" readonly="readonly" />
+            <label for="float-label1">RUC</label>
+          </span>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-12">
+      <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+              <i class="pi pi-cog"></i>
+          </span>
+        <span class="p-float-label">
+            <input pInputText class="p-inputtext-sm w-full" [(ngModel)]="empresa" readonly="readonly" />
+            <label for="float-label1">Empresa o Entidad</label>
+          </span>
+      </div>
+    </div>
+
+  </div>
+</p-fieldset>
+
+<p-fieldset legend="Detalle del Reclamo">
+</p-fieldset>
+
+
+

@@ -4,6 +4,7 @@ import {RegistroReclamoComponent} from "./components/registro-reclamo/registro-r
 import {AvisoRegistroReclamoComponent} from "./components/aviso-registro-reclamo/aviso-registro-reclamo.component";
 import {SeguimientoReclamoComponent} from "./components/seguimiento-reclamo/seguimiento-reclamo.component";
 import {BuscarReclamoComponent} from "./components/buscar-reclamo/buscar-reclamo.component";
+import { AvisoPrevioReclamoComponent } from './components/aviso-previo-reclamo/aviso-previo-reclamo.component'
 
 const routes: Routes = [
   {
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'codigo',
     component: AvisoRegistroReclamoComponent
+  },
+
+  {
+    path: 'previo',
+    component:AvisoPrevioReclamoComponent
   },
 
   {

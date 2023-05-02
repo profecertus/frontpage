@@ -88,27 +88,30 @@
                 <label for="float-label1">Repita su email</label>
               </span>
             </div>
+            <p-toast></p-toast>
             <div class="col-12 col-md-6">
-              <p-button icon="pi pi-envelope" pRibbon label="Enviar Código" styleClass="p-button-danger" *ngIf="verBotonCorreo" 
-                  (onClick)="validarCorreo()" ></p-button>                                
+              <p-button icon="pi pi-envelope" pRibbon label="Enviar Código" styleClass="p-button-danger" *ngIf="verBotonCorreo"
+                  (onClick)="validarCorreo()" ></p-button>
               <span class="p-float-label" *ngIf="!verBotonCorreo">
-                    <input pInputText id="domicilio" class="p-inputtext-sm w-full" [(ngModel)]="numeroCorreo" maxlength="6" (pTooltip)="'El código que se envio por email'" />
+                    <input pInputText id="domicilio" class="p-inputtext-sm w-full" (keyup)="existeMail()" [(ngModel)]="numeroCorreo" maxlength="6" (pTooltip)="'El código que se envio por email'" />
                     <label for="float-label1">Numero Validación</label>
+                    <!--i class="pi pi-thumbs-up-fill" style="color:blue; font-size: 2em; align-content: center;"></i-->
+                    <!--i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i-->
               </span>
               <span class="p-float-label">
-                
-                  <div class="mt-2">Se enviará un código de seis (6) dígitos a su correo (revise en su carpeta spam).</div> 
-                
+                  <div class="mt-2">Se enviará un código de seis (6) dígitos a su correo (revise en su carpeta spam).</div>
               </span>
             </div>
-        
+
+
 
             <div class="col-12 mt-3"> <strong class="">3. Persona Jurídica (opcional) </strong>
               <div class="mt-2">Selecciona si el reclamo es en representación de una entidad o empresa.</div>
             </div>
             <div class="col-12 px-3 ">
               <div class="field-checkbox mt-3">
-                <p-checkbox label="Represento una entidad o empresa" [binary]="true" [(ngModel)]="esEntidad">
+                <p-checkbox label="Represento una entidad o empresa" [binary]="true"
+                            (onChange)="cambiaCheck($event)" [(ngModel)]="esEntidad">
                 </p-checkbox>
               </div>
             </div>
@@ -142,22 +145,23 @@
             <div class="col-12">
               <p-divider></p-divider>
             </div>
-            
+
 
             <div class="col-12 px-3 ">
               <div class="field-checkbox mt-3">
-                <p-checkbox [binary]="true" (onChange)="aceptoLicencia()"></p-checkbox>
+                <p-checkbox [binary]="true" (onChange)="aceptoLicencia($event)"
+                  [(ngModel)]="accLicencia"></p-checkbox>
                 <label [for]="'read'">Acepto la <a (click)="showDialog()"  class="text-primary">política de privacidad</a></label>
               </div>
             </div>
-            
+
             <p-dialog header="Politicas de Manejo de Datos" [(visible)]="visible" [style]="{width: '50vw'}">
               <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
           </p-dialog>
-            
+
           </div>
 
           <div *ngIf="paso == 2" class="grid">
@@ -167,17 +171,17 @@
             </div>
             <div class="col-12 px-3 ">
               <ul>
-                <li *ngFor="let motivo of motivos">                   
+                <li *ngFor="let motivo of motivos">
                   <div class="flex align-items-center">
                     <p-radioButton name="motivoSel" [value]="motivo.id" [(ngModel)]="motivoSeleccionado" [inputId]="motivo.id"></p-radioButton>
-                    <label [for]="motivo.id" class="ml-2"><strong>{{motivo.cabecera}}</strong><br>{{ motivo.detalle }}</label>                    
-                  </div>                  
+                    <label [for]="motivo.id" class="ml-2"><strong>{{motivo.cabecera}}</strong><br>{{ motivo.detalle }}</label>
+                  </div>
                   <br>
-                </li>                
+                </li>
               </ul>
             </div>
 
-            
+
 
             <div class="col-12"> <strong class="">2. ¿Trataron de darte una solución previa al registro del
                 reclamo?</strong></div>

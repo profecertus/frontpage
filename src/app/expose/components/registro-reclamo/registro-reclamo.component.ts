@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {Situacion} from "../../model/situacion.interface";
 import {Router} from "@angular/router";
-import { DialogModule } from 'primeng/dialog';
-
+import { LocalStorageService } from "../local-storage.service";
+import { MessageService, Message } from "primeng/api";
 
 @Component({
   selector: 'app-registro-reclamo',
   templateUrl: './registro-reclamo.component.html',
-  styleUrls: ['./registro-reclamo.component.scss']
+  styleUrls: ['./registro-reclamo.component.scss'],
+  providers: [MessageService]
 })
 
 export class RegistroReclamoComponent implements OnInit {
@@ -17,7 +18,7 @@ export class RegistroReclamoComponent implements OnInit {
   selectedOption:any;
   esEntidad:boolean = false;
   esVisible:boolean = false;
-  entidad:string = "";  
+  entidad:string = "";
   ruc:string = "";
   visible:boolean = false;
   siguiente:boolean = true;
@@ -29,22 +30,19 @@ export class RegistroReclamoComponent implements OnInit {
   paso2Seleccionado:string = "pi pi-map-marker text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
   paso3Seleccionado:string = "pi pi-check-circle text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
   motivoSeleccionado:string = "";
+  accLicencia:boolean = false;
 
   date: Date[] | any;
 
 
-  param:string = '';
-  param1:string = '';
   text:string = '';
   paso:number = 1;
   stateOptions: any[] = [{label: 'SI', value: '1'}, {label: 'NO', value: '0'}];
-  selectedCategories: any[] = [];
   edificios: any[] = [];
   edifSelec:any;
   value: string = '1';
-  tipoenvioSelected: any;
-  tipoenvio: any[] = [];
-  constructor(private router: Router) {
+  constructor(private router: Router, private localStorageService:LocalStorageService,
+              private messageService:MessageService, private el:ElementRef) {
 
   }
 
@@ -53,7 +51,34 @@ export class RegistroReclamoComponent implements OnInit {
   }
 
   validarCorreo(){
-    this.verBotonCorreo = false;
+    //Verificar que los correos sean identicos.
+    if(this.email == this.repitaEmail){
+      this.verBotonCorreo = false;
+    }else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Rechazado',
+        detail: 'Las direcciones de correo no coinciden'
+      });
+    }
+  }
+
+  existeMail():void{
+    if( this.numeroCorreo.length == 6 ){
+      if(this.el.nativeElement.querySelector("#dd_tipoDocumento") == ""){
+
+      }
+      this.messageService.add({severity:'success', summary:'Exito', detail:'Se valido el codigo Email'});
+      let datosGenerales = this.localStorageService.obtenerItem("datosGenerales");
+      let reclamo = {
+        "datosGenerales":datosGenerales,
+        "email":this.email,
+        "domicilio": this.el.nativeElement.querySelector("#domicilio").value,
+        "telefono": this.el.nativeElement.querySelector("#telefono").value,
+      };
+      this.localStorageService.guardarItem("reclamo", reclamo);
+      //this.localStorageService.eliminarItem("datosGenerales");
+    }
   }
 
   ngOnInit(): void {
@@ -65,7 +90,13 @@ export class RegistroReclamoComponent implements OnInit {
     this.edificios = [
       { id: '1', nombre: 'Palacio Legislativo' },
       { id: '2', nombre: 'Edf. Luis Alberto Sanchez' },
-      { id: '3', nombre: 'Edf. Fernando Belaunde Terry' }
+      { id: '3', nombre: 'Edf. Fernando Belaunde Terry' },
+      { id: '4', nombre: 'Edf. Roberto Ramirez del Villar' },
+      { id: '5', nombre: 'Edf. José F. Sánchez Carrión' },
+      { id: '6', nombre: 'Edf. Santos Atahualpa' },
+      { id: '7', nombre: 'Edf. Victor R. Haya de la Torre' },
+      { id: '8', nombre: 'Complejo Legislativo' },
+      { id: '9', nombre: 'Hospicio Ruiz Dávila' },
     ];
 
     this.motivos = [
@@ -80,25 +111,46 @@ export class RegistroReclamoComponent implements OnInit {
     ];
 
     this.situacioSelect = this.situaciones[0];
-    
+
   }
- 
+
+  cambiaCheck(event:any){
+    if(event.checked == false){
+      this.ruc = '';
+      this.entidad = '';
+    }
+  }
 
   obtenerEmpresa(event:any){
     this.entidad = "EMPRESA LOS JARDINES DEL MAR S.A.";
     this.rucDeshabilitado = true;
+    this.messageService.add({severity:'success', summary:'Exito', detail:'Se obtuvo el nombre de la empresa'});
+    let reclamo = this.localStorageService.obtenerItem("reclamo") ;
+    reclamo.ruc = this.ruc;
+    reclamo.empresa = this.entidad;
+
+    this.localStorageService.guardarItem("reclamo", reclamo);
+
   }
 
-  aceptoLicencia(){
-    this.siguiente = !this.siguiente;
+  aceptoLicencia(event:any){
+    this.siguiente = !event.checked;
+    //this.accLicencia = !event.checked;
   }
 
   clickSiguiente() {
-    
+    //this.localStorageService.guardarItem()
     if(this.paso == 3){
-      this.router.navigate(['/reclamo/codigo']);      
+      this.router.navigate(['/reclamo/previo']);
       return;
-    }    
+    }
+    if(this.paso == 2){
+      let reclamo = this.localStorageService.obtenerItem("reclamo");
+      reclamo.motivoSeleccionado = this.motivoSeleccionado;
+      reclamo.trataron = this.value;
+
+      this.localStorageService.guardarItem("reclamo", reclamo);
+    }
     this.paso++;
     if(this.paso ==2)
       this.paso2Seleccionado = "pi pi-map-marker text-blue-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
@@ -107,10 +159,21 @@ export class RegistroReclamoComponent implements OnInit {
   }
 
   clickAnterior() {
-    if (this.paso == 1) return;
+    if (this.paso == 1){
+      return;
+    }
     this.paso--;
-    if(this.paso == 1){this.paso2Seleccionado = "pi pi-map-marker text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";}
-    if(this.paso == 2){this.paso3Seleccionado = "pi pi-check-circle text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";}
-   
+    if(this.paso == 1){
+      this.paso2Seleccionado = "pi pi-map-marker text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+      let reclamo = this.localStorageService.obtenerItem("reclamo");
+      this.email = reclamo.email;
+      this.repitaEmail = reclamo.email;
+      this.verBotonCorreo = false;
+      this.numeroCorreo = '000000';
+    }
+    if(this.paso == 2){
+      this.paso3Seleccionado = "pi pi-check-circle text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+    }
+
   }
 }

@@ -27,6 +27,9 @@ import {DialogModule} from 'primeng/dialog';
 import { DividerModule } from 'primeng/divider';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { AvisoPrevioReclamoComponent } from './components/aviso-previo-reclamo/aviso-previo-reclamo.component';
+import {ToastModule} from "primeng/toast";
+import {FieldsetModule} from "primeng/fieldset";
 
 
 
@@ -38,7 +41,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     SeguimientoReclamoComponent,
     BuscarReclamoComponent,
     InicioComponent,
-    ValidaDocumentoComponent
+    ValidaDocumentoComponent,
+    AvisoPrevioReclamoComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +64,10 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     FileUploadModule,
     CheckboxModule,
     TagModule,
-    KeyFilterModule
+    KeyFilterModule,
+    ToastModule,
+    FieldsetModule
+
   ]
 })
 export class ExposeModule { }

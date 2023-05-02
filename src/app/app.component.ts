@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {parseJson} from "@angular/cli/src/utilities/json-file";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SLRD';
+
+  constructor() {
+
+  }
+
 }
