@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {parseJson} from "@angular/cli/src/utilities/json-file";
+import { LocalStorageService } from "./expose/components/local-storage.service";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,9 @@ import {parseJson} from "@angular/cli/src/utilities/json-file";
 export class AppComponent {
   title = 'SLRD';
 
-  constructor() {
-
+  constructor(private localStoreService:LocalStorageService) {
+    this.localStoreService.eliminarItem("reclamo");
+    this.localStoreService.eliminarItem("datosGenerales");
   }
 
 }

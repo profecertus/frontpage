@@ -3,6 +3,7 @@ import {Situacion} from "../../model/situacion.interface";
 import {Router} from "@angular/router";
 import { LocalStorageService } from "../local-storage.service";
 import { MessageService, Message } from "primeng/api";
+import {Time} from "@angular/common";
 
 @Component({
   selector: 'app-registro-reclamo',
@@ -29,10 +30,13 @@ export class RegistroReclamoComponent implements OnInit {
   repitaEmail:string = "";
   paso2Seleccionado:string = "pi pi-map-marker text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
   paso3Seleccionado:string = "pi pi-check-circle text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+  paso4Seleccionado:string = "pi pi-print text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
   motivoSeleccionado:string = "";
+  txtSiguiente:string = "Siguiente";
   accLicencia:boolean = false;
 
-  date: Date[] | any;
+  date: Date | any;
+  hour: Time | any;
 
 
   text:string = '';
@@ -139,23 +143,37 @@ export class RegistroReclamoComponent implements OnInit {
   }
 
   clickSiguiente() {
-    //this.localStorageService.guardarItem()
-    if(this.paso == 3){
-      this.router.navigate(['/reclamo/previo']);
-      return;
-    }
+    let reclamo = this.localStorageService.obtenerItem("reclamo");
+    if(this.paso == 1){}
+
     if(this.paso == 2){
-      let reclamo = this.localStorageService.obtenerItem("reclamo");
       reclamo.motivoSeleccionado = this.motivoSeleccionado;
       reclamo.trataron = this.value;
-
-      this.localStorageService.guardarItem("reclamo", reclamo);
     }
+
+    if(this.paso == 3){
+      reclamo.tipoLugar = this.situacioSelect;
+      reclamo.lugarOcurrencia = this.edifSelec;
+      reclamo.fechaOcurrencia = this.date;
+      reclamo.horaOcurrencia = this.hour;
+      reclamo.descripcion = this.text;
+    }
+    if(this.paso == 4){
+      this.router.navigate(['/reclamo/codigo']);
+      return;
+    }
+    this.localStorageService.guardarItem("reclamo", reclamo);
+
     this.paso++;
     if(this.paso ==2)
       this.paso2Seleccionado = "pi pi-map-marker text-blue-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
     if(this.paso == 3)
       this.paso3Seleccionado = "pi pi-check-circle text-blue-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+    if(this.paso == 4){
+      this.paso4Seleccionado = "pi pi-print text-blue-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+      this.txtSiguiente = "Finalizar";
+    }
+
   }
 
   clickAnterior() {
@@ -173,6 +191,11 @@ export class RegistroReclamoComponent implements OnInit {
     }
     if(this.paso == 2){
       this.paso3Seleccionado = "pi pi-check-circle text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+    }
+
+    if(this.paso == 3){
+      this.paso4Seleccionado = "pi pi-print text-600 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3";
+      this.txtSiguiente = "Siguiente";
     }
 
   }

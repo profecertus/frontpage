@@ -30,6 +30,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { AvisoPrevioReclamoComponent } from './components/aviso-previo-reclamo/aviso-previo-reclamo.component';
 import {ToastModule} from "primeng/toast";
 import {FieldsetModule} from "primeng/fieldset";
+import {PanelModule} from "primeng/panel";
 
 
 
@@ -44,30 +45,31 @@ import {FieldsetModule} from "primeng/fieldset";
     ValidaDocumentoComponent,
     AvisoPrevioReclamoComponent
   ],
-  imports: [
-    CommonModule,
-    SelectButtonModule,
-    KeyFilterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ExposeRoutingModule,
-    DropdownModule,
-    ButtonModule,
-    DialogModule,
-    DividerModule,
-    BadgeModule,
-    InputTextModule,
-    RadioButtonModule,
-    CalendarModule,
-    EditorModule,
-    HttpClientModule,
-    FileUploadModule,
-    CheckboxModule,
-    TagModule,
-    KeyFilterModule,
-    ToastModule,
-    FieldsetModule
+    imports: [
+        CommonModule,
+        SelectButtonModule,
+        KeyFilterModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ExposeRoutingModule,
+        DropdownModule,
+        ButtonModule,
+        DialogModule,
+        DividerModule,
+        BadgeModule,
+        InputTextModule,
+        RadioButtonModule,
+        CalendarModule,
+        EditorModule,
+        HttpClientModule,
+        FileUploadModule,
+        CheckboxModule,
+        TagModule,
+        KeyFilterModule,
+        ToastModule,
+        FieldsetModule,
+        PanelModule
 
-  ]
+    ]
 })
 export class ExposeModule { }
