@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {PrincipalLayoutComponent} from "./principal-layout/principal-layout.component";
 import {RouterModule} from "@angular/router";
 import { PortadaLayoutComponent } from './portada-layout/portada-layout.component';

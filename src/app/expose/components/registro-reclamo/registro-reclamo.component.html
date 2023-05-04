@@ -6,7 +6,7 @@
     <li class="relative mr-0 flex-1 flex justify-content-center">
       <div [ngClass]="paso >=1 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
         class="w-full md:mr-6 surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
-        <i class="pi pi-user text-blue-500 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3"></i>
+        <em class="pi pi-user text-blue-500 text-2xl md:text-4xl mb-2 md:mb-0 mr-0 md:mr-3"></em>
         <div>
           <div class="text-blue-600 font-medium mb-1">Datos Personales</div>
           <span class="text-600 text-sm hidden md:block">Paso 1</span>
@@ -19,7 +19,7 @@
     <li class=" relative mr-0 flex-1 flex  justify-content-center">
       <div [ngClass]="paso >=2 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
         class="w-full  md:mx-3  surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
-        <i  [ngClass]="paso2Seleccionado"></i>
+        <em  [ngClass]="paso2Seleccionado"></em>
         <div>
           <div class="text-900 font-medium mb-1">Situación del reclamo</div>
           <span class="text-600 text-sm hidden md:block">Paso 2</span>
@@ -32,7 +32,7 @@
     <li class=" relative mr-0 flex-1 flex justify-content-center ">
       <div [ngClass]="paso >=3 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
            class="w-full  md:ml-6 surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
-        <i [ngClass]="paso3Seleccionado"></i>
+        <em [ngClass]="paso3Seleccionado"></em>
         <div>
           <div class="text-900 font-medium mb-1">Clasificación del reclamo</div>
           <span class="text-600 text-sm hidden md:block">Paso 3</span>
@@ -45,7 +45,7 @@
     <li class=" relative mr-0 flex-1 flex justify-content-center ">
       <div [ngClass]="paso ==4 ? 'border-2 border-blue-500' : 'border-1  surface-border'"
            class="w-full  md:ml-6 surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1">
-        <i [ngClass]="paso4Seleccionado"></i>
+        <em [ngClass]="paso4Seleccionado"></em>
         <div>
           <div class="text-900 font-medium mb-1">Resumen del reclamo</div>
           <span class="text-600 text-sm hidden md:block">Paso 4</span>
@@ -108,8 +108,6 @@
               <span class="p-float-label" *ngIf="!verBotonCorreo">
                     <input pInputText id="domicilio" class="p-inputtext-sm w-full" (keyup)="existeMail()" [(ngModel)]="numeroCorreo" maxlength="6"/>
                     <label>Numero Validación</label>
-                    <!--i class="pi pi-thumbs-up-fill" style="color:blue; font-size: 2em; align-content: center;"></i-->
-                    <!--i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i-->
               </span>
               <span class="p-float-label">
                   <div class="mt-2">Se enviará un código de seis (6) dígitos a su correo (revise en su carpeta spam).</div>
@@ -259,7 +257,7 @@
 
             <div class="col-12 mt-2">
               <strong class="">4. Adjuntar archivos (opcional)</strong>
-              <div class="mt-2">Puedes subir un máximo de <b>20 MB</b> por fotos, videos y/o textos que ayuden a
+              <div class="mt-2">Puedes subir un máximo de <strong>20 MB</strong> por fotos, videos y/o textos que ayuden a
                 evidenciar tu reclamo.</div>
             </div>
             <div class="col-12">

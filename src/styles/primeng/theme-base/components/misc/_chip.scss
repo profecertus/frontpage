@@ -18,6 +18,12 @@
 
     .pi-chip-remove-icon {
         margin-left: $inlineSpacing;
+      border-radius: $borderRadius;
+      transition: $actionIconTransition;
+
+      &:focus {
+        @include focused();
+      }
     }
 
     img {
@@ -27,12 +33,4 @@
         margin-right: $inlineSpacing;
     }
 
-    .pi-chip-remove-icon {
-        border-radius: $borderRadius;
-        transition: $actionIconTransition;
-        
-        &:focus {
-            @include focused();
-        }
-    }
 }

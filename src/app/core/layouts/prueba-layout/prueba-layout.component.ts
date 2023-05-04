@@ -11,8 +11,6 @@ export class PruebaLayoutComponent implements OnInit {
   manuNav: MenuItem[] = [];
   manuNavHome: MenuItem = {};
 
-  constructor() { }
-
   ngOnInit(): void {
     this.manuNav = [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }];
     this.manuNavHome = { icon: 'pi pi-home', routerLink: '/' };

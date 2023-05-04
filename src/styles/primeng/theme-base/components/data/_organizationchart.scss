@@ -1,6 +1,11 @@
 .p-organizationchart {
     .p-organizationchart-node-content {
-        &.p-organizationchart-selectable-node:not(.p-highlight):hover {
+      border: $panelContentBorder;
+      background: $panelContentBg;
+      color: $panelContentTextColor;
+      padding: $panelContentPadding;
+
+      &.p-organizationchart-selectable-node:not(.p-highlight):hover {
             background: $inputListItemHoverBg;
             color: $inputListItemTextHoverColor;
         }
@@ -29,13 +34,6 @@
     .p-organizationchart-line-top {
         border-top: $panelContentBorder;
         border-color: $organizationChartConnectorColor;
-    }
-
-    .p-organizationchart-node-content {
-        border: $panelContentBorder;
-        background: $panelContentBg;
-        color: $panelContentTextColor;
-        padding: $panelContentPadding;
     }
 
     .p-organizationchart-node-content .p-node-toggler {

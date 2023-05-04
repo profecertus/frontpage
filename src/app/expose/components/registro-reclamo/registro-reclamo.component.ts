@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit} from '@angular/core';
 import {Situacion} from "../../model/situacion.interface";
 import {Router} from "@angular/router";
 import { LocalStorageService } from "../local-storage.service";
-import { MessageService, Message } from "primeng/api";
+import { MessageService } from "primeng/api";
 import {Time} from "@angular/common";
 
 @Component({
@@ -70,7 +70,8 @@ export class RegistroReclamoComponent implements OnInit {
   existeMail():void{
     if( this.numeroCorreo.length == 6 ){
       if(this.el.nativeElement.querySelector("#dd_tipoDocumento") == ""){
-
+        this.messageService.add({severity:'error', summary:'Rechazado', detail:'Debe ingresar un tipo de documento'});
+        return;
       }
       this.messageService.add({severity:'success', summary:'Exito', detail:'Se valido el codigo Email'});
       let datosGenerales = this.localStorageService.obtenerItem("datosGenerales");
@@ -81,7 +82,6 @@ export class RegistroReclamoComponent implements OnInit {
         "telefono": this.el.nativeElement.querySelector("#telefono").value,
       };
       this.localStorageService.guardarItem("reclamo", reclamo);
-      //this.localStorageService.eliminarItem("datosGenerales");
     }
   }
 
@@ -119,7 +119,7 @@ export class RegistroReclamoComponent implements OnInit {
   }
 
   cambiaCheck(event:any){
-    if(event.checked == false){
+    if(!event.checked){
       this.ruc = '';
       this.entidad = '';
     }
@@ -139,12 +139,11 @@ export class RegistroReclamoComponent implements OnInit {
 
   aceptoLicencia(event:any){
     this.siguiente = !event.checked;
-    //this.accLicencia = !event.checked;
   }
 
   clickSiguiente() {
     let reclamo = this.localStorageService.obtenerItem("reclamo");
-    if(this.paso == 1){}
+
 
     if(this.paso == 2){
       reclamo.motivoSeleccionado = this.motivoSeleccionado;

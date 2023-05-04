@@ -101,7 +101,7 @@
 .p-radiobutton {
     .p-radiobutton-box {
         &:not(.p-disabled):not(.p-highlight):hover {
-            background-color: $white300;;
+            background-color: $white300;
         }
 
         &:not(.p-disabled).p-focus {
@@ -274,6 +274,17 @@
             outline: 1px solid $primaryColorAlt;
         }
     }
+  .p-datatable-tbody {
+    > tr {
+      &.p-datatable-dragpoint-top > td {
+        box-shadow: inset 0 2px 0 0 $primaryColor;
+      }
+
+      &.p-datatable-dragpoint-bottom > td {
+        box-shadow: inset 0 -2px 0 0 $primaryColor;
+      }
+    }
+  }
 }
 
 //overlaypanel
@@ -427,16 +438,4 @@
     }
 }
 
-.p-datatable {
-    .p-datatable-tbody {
-        > tr {
-            &.p-datatable-dragpoint-top > td {
-                box-shadow: inset 0 2px 0 0 $primaryColor;
-            }
 
-            &.p-datatable-dragpoint-bottom > td {
-                box-shadow: inset 0 -2px 0 0 $primaryColor;
-            }
-        }
-    }
-}

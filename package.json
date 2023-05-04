@@ -4,11 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:jar:win": "cd ./dist/slrd && jar -cvf ../slrd.war *",
-    "build": "ng build --configuration production --base-href=/slrd/ && npm run build:jar:win",
-    "build-prod": "ng build --configuration production --base-href=/slrd/ --output-hashing=none  && npm run build:jar:win",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "ng build",
+    "build:dev": "ng build --configuration=dev && npm run build:jar",
+    "build:test": "ng build --configuration=test && npm run build:jar",
+    "build:prod": "ng build --configuration=production && npm run build:jar",
+    "build:jar": "cd dist/slrd && jar -cvf ../slrd.war *",
+    "sonar": "sonar-scanner"   ,
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +45,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "sonar-scanner": "^3.1.0"
   }
 }

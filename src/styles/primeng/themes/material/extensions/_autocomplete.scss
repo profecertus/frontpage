@@ -6,14 +6,6 @@
     }
 }
 
-.p-input-filled {
-    .p-autocomplete {
-        .p-autocomplete-multiple-container {
-            @include filled-input-wrapper();
-        }
-    }
-}
-
 .p-float-label {
     .p-autocomplete-multiple-container {
         .p-autocomplete-token {
@@ -23,6 +15,11 @@
 }
 
 .p-input-filled {
+  .p-autocomplete {
+    .p-autocomplete-multiple-container {
+      @include filled-input-wrapper();
+    }
+  }
     .p-float-label {
         .p-autocomplete {
             .p-autocomplete-multiple-container {
@@ -59,7 +56,7 @@ p-autocomplete.ng-dirty.ng-invalid {
             box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;
         }
     }
-    
+
     .p-autocomplete .p-autocomplete-multiple-container {
         &:not(.p-disabled).p-focus {
             box-shadow: inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor,inset 0 0 0 1px $inputErrorBorderColor;

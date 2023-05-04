@@ -34,12 +34,7 @@
 
     &:not(.p-disabled):hover {
         .p-inputswitch-slider {
-            background: $inputSwitchSliderOffHoverBg;
-        }
-    }
 
-    &.p-inputswitch-checked {
-        .p-inputswitch-slider {
             background: $inputSwitchSliderOnBg;
 
             &:before {

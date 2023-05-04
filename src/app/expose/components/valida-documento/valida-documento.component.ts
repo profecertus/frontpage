@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from "../local-storage.service";
-import { MessageService, Message } from "primeng/api";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: 'app-valida-documento',

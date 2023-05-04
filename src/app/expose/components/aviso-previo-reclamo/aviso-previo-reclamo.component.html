@@ -21,24 +21,24 @@ Necesito mostrar los siguientes datos
 <p-panel header="Datos del ciudadano" [toggleable]="true">
     <div class="row">
       <div class="col-12 col-md-12">
-        <i class="pi pi-user"></i>
-        <label><b>&nbsp;&nbsp;&nbsp;Nombres y Apellidos:</b> </label><br>
+        <em class="pi pi-user"></em>
+        <label><strong>&nbsp;&nbsp;&nbsp;Nombres y Apellidos:</strong> </label><br>
         <p class="m-0">
           {{ nombreCompleto }}
         </p>
       </div>
 
       <div class="col-12 col-md-4">
-        <i class="pi pi-id-card"></i>
-        <label><b>&nbsp;&nbsp;&nbsp;Tipo Documento</b> </label>
+        <em class="pi pi-id-card"></em>
+        <label><strong>&nbsp;&nbsp;&nbsp;Tipo Documento</strong> </label>
         <p class="m-0">
           {{ tipoDocumento }}
         </p>
       </div>
 
       <div class="col-12 col-md-4">
-        <i class="pi pi-sort-numeric-down-alt"></i>
-        <label><b>&nbsp;&nbsp;&nbsp;Numero Documento</b> </label>
+        <em class="pi pi-sort-numeric-down-alt"></em>
+        <label><strong>&nbsp;&nbsp;&nbsp;Numero Documento</strong> </label>
         <p class="m-0">
           {{ numeroDocumento }}
         </p>
@@ -46,24 +46,24 @@ Necesito mostrar los siguientes datos
 
 
       <div class="col-12 col-md-4">
-        <i class="pi pi-envelope"></i>
-        <label><b>&nbsp;&nbsp;&nbsp;Email</b> </label>
+        <em class="pi pi-envelope"></em>
+        <label><strong>&nbsp;&nbsp;&nbsp;Email</strong> </label>
         <p class="m-0">
           {{ email }}
         </p>
       </div>
 
       <div class="col-12 col-md-8">
-        <i class="pi pi-home"></i>
-        <label><b>&nbsp;&nbsp;&nbsp;Domicilio:</b> </label>
+        <em class="pi pi-home"></em>
+        <label><strong>&nbsp;&nbsp;&nbsp;Domicilio:</strong> </label>
         <p class="m-0">
           {{ domicilio }}
         </p>
       </div>
 
       <div class="col-12 col-md-4">
-        <i class="pi pi-phone"></i>
-        <label><b>&nbsp;&nbsp;&nbsp;Telefono:</b> </label>
+        <em class="pi pi-phone"></em>
+        <label><strong>&nbsp;&nbsp;&nbsp;Telefono:</strong> </label>
         <p class="m-0">
           {{ telefono }}
         </p>
@@ -76,16 +76,16 @@ Necesito mostrar los siguientes datos
 <p-panel header="Representación Jurídica" [hidden]="empresa == null" [toggleable]="true">
   <div class="row">
     <div class="col-12 col-md-4">
-      <i class="pi pi-wallet"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;RUC:</b> </label>
+      <em class="pi pi-wallet"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;RUC:</strong> </label>
       <p class="m-0">
         {{ ruc }}
       </p>
     </div>
 
     <div class="col-12 col-md-8">
-      <i class="pi pi-cog"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Entidad o Empres:</b> </label>
+      <em class="pi pi-cog"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Entidad o Empres:</strong> </label>
       <p class="m-0">
         {{ empresa }}
       </p>
@@ -96,16 +96,16 @@ Necesito mostrar los siguientes datos
 <p-panel header="Detalle del Reclamo" [toggleable]="true">
   <div class="row">
     <div class="col-12 col-md-12">
-      <i class="pi pi-user-edit"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Motivo del Reclamo - ({{ motivoCabecera}})</b> </label>
+      <em class="pi pi-user-edit"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Motivo del Reclamo - ({{ motivoCabecera}})</strong> </label>
       <p class="m-0">
         {{ motivoSeleccionado }}
       </p>
     </div>
 
     <div class="col-12 col-md-4">
-      <i class="pi pi-comments"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Intentaron Solucionar:</b> </label>
+      <em class="pi pi-comments"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Intentaron Solucionar:</strong> </label>
       <p class="m-0">
         {{ trataron }}
       </p>
@@ -113,8 +113,8 @@ Necesito mostrar los siguientes datos
 
 
     <div class="col-12 col-md-4">
-      <i class="pi pi-map"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Tipo Lugar:</b> </label>
+      <em class="pi pi-map"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Tipo Lugar:</strong> </label>
       <p class="m-0">
         {{ tipoLugar }}
       </p>
@@ -122,24 +122,24 @@ Necesito mostrar los siguientes datos
 
 
     <div class="col-12 col-md-4">
-      <i class="pi pi-reply"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Lugar:</b> </label>
+      <em class="pi pi-reply"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Lugar:</strong> </label>
       <p class="m-0">
         {{ lugar }}
       </p>
     </div>
 
     <div class="col-12 col-md-4">
-      <i class="pi pi-calendar"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Fecha Hora:</b> </label>
+      <em class="pi pi-calendar"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Fecha Hora:</strong> </label>
       <p class="m-0">
         {{ fecha | date:'dd/MM/yyyy' }}  -  {{ hora | date:'HH:mm' }}
       </p>
     </div>
 
     <div class="col-12 col-md-12">
-      <i class="pi pi-book"></i>
-      <label><b>&nbsp;&nbsp;&nbsp;Descripción:</b> </label>
+      <em class="pi pi-book"></em>
+      <label><strong>&nbsp;&nbsp;&nbsp;Descripción:</strong> </label>
       <div class="m-0" [innerHTML]="descripcion"></div>
     </div>
 

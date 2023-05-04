@@ -10,6 +10,31 @@
     .p-chips-multiple-container {
         @include filled-input-wrapper();
     }
+
+  .p-float-label {
+    .p-chips {
+      .p-chips-multiple-container {
+        .p-chips-token {
+          padding-top: 0;
+          padding-bottom: 0;
+
+          .p-chips-token-icon {
+            font-size: 75%;
+          }
+        }
+
+        .p-chips-input-token {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  p-chips.ng-dirty.ng-invalid {
+    .p-chips .p-chips-multiple-container {
+      @include invalid-filled-input-wrapper();
+    }
+  }
 }
 
 .p-float-label {
@@ -20,32 +45,6 @@
     }
 }
 
-.p-input-filled {
-    .p-float-label {
-        .p-chips {
-            .p-chips-multiple-container {
-                .p-chips-token {
-                    padding-top: 0;
-                    padding-bottom: 0;
-
-                    .p-chips-token-icon {
-                        font-size: 75%;
-                    }
-                }
-
-                .p-chips-input-token {
-                    padding: 0;
-                }
-            }
-        }
-    }
-
-    p-chips.ng-dirty.ng-invalid {
-        .p-chips .p-chips-multiple-container {
-            @include invalid-filled-input-wrapper();
-        }
-    }
-}
 
 p-chips.ng-dirty.ng-invalid {
     .p-chips .p-chips-multiple-container {

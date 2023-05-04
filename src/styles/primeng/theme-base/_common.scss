@@ -8,11 +8,6 @@
     font-weight: $fontWeight;
 }
 
-.p-component-overlay {
-    background-color: $maskBg;
-    transition-duration: $transitionDuration;
-}
-
 .p-disabled, .p-component:disabled {
     opacity: $disabledOpacity;
 }
@@ -48,6 +43,9 @@
 }
 
 .p-component-overlay {
+    background-color: $maskBg;
+    transition-duration: $transitionDuration;
+
     @keyframes p-component-overlay-enter-animation {
         from {
             background-color: transparent;

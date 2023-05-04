@@ -81,6 +81,19 @@
 
     .p-datepicker-buttonbar {
         border-top: 0 none;
+      .p-button {
+        font-size: 90%;
+        color: $textColor;
+
+        .p-button-label {
+          font-weight: 400;
+        }
+
+        &:enabled:hover {
+          color: $textColor;
+          background-color:$neutralLighter;
+        }
+      }
     }
 
     .p-timepicker {
@@ -111,21 +124,7 @@
         }
     }
 
-    .p-datepicker-buttonbar {
-        .p-button {
-            font-size: 90%;
-            color: $textColor;
 
-            .p-button-label {
-                font-weight: 400;
-            }
-
-            &:enabled:hover {
-                color: $textColor;
-                background-color:$neutralLighter;
-            }
-        }
-    }
 
     .p-monthpicker {
         .p-monthpicker-month {
@@ -134,9 +133,6 @@
     }
 }
 
-.p-datatable {
-    font-size: 90%;
-}
 
 .p-toast {
     font-size: 90%;
@@ -258,6 +254,7 @@
 }
 
 .p-datatable {
+    font-size: 90%;
     .p-datatable-tbody {
         > tr {
             &.p-datatable-dragpoint-top > td {

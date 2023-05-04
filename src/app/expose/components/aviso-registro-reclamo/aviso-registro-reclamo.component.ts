@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -6,12 +6,9 @@ import {Router} from "@angular/router";
   templateUrl: './aviso-registro-reclamo.component.html',
   styleUrls: ['./aviso-registro-reclamo.component.scss']
 })
-export class AvisoRegistroReclamoComponent implements OnInit {
+export class AvisoRegistroReclamoComponent{
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   IrSeguimiento() {
     this.router.navigate(['/reclamo/seguimiento']);

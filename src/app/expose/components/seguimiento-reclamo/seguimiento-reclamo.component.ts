@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-seguimiento-reclamo',
   templateUrl: './seguimiento-reclamo.component.html',
   styleUrls: ['./seguimiento-reclamo.component.scss']
 })
-export class SeguimientoReclamoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class SeguimientoReclamoComponent {
 
 }
